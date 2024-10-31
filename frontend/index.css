@@ -1,0 +1,133 @@
+:root {
+    --correct-color: #6aaa64;
+    --present-color: #c9b458;
+    --absent-color: #787c7e;
+    --tile-size: 62px;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+    font-weight: bold;
+}
+
+#game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    gap: 5px;
+}
+
+.tile {
+    width: var(--tile-size);
+    height: var(--tile-size);
+    border: 2px solid #d3d6da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: white;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.tile.flip {
+    transform: rotateX(180deg);
+}
+
+.tile.correct {
+    background-color: var(--correct-color);
+    border-color: var(--correct-color);
+    color: white;
+    transform: rotateX(180deg);
+}
+
+.tile.present {
+    background-color: var(--present-color);
+    border-color: var(--present-color);
+    color: white;
+    transform: rotateX(180deg);
+}
+
+.tile.absent {
+    background-color: var(--absent-color);
+    border-color: var(--absent-color);
+    color: white;
+    transform: rotateX(180deg);
+}
+
+#keyboard {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+#keyboard button {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #d3d6da;
+    cursor: pointer;
+    text-transform: uppercase;
+    min-width: 43px;
+}
+
+#keyboard button:hover {
+    opacity: 0.9;
+}
+
+#keyboard button.wide-button {
+    min-width: 65px;
+    font-size: 0.9em;
+}
+
+#keyboard button.correct {
+    background-color: var(--correct-color);
+    color: white;
+}
+
+#keyboard button.present {
+    background-color: var(--present-color);
+    color: white;
+}
+
+#keyboard button.absent {
+    background-color: var(--absent-color);
+    color: white;
+}
+
+@media (max-width: 500px) {
+    :root {
+        --tile-size: 50px;
+    }
+
+    #keyboard button {
+        padding: 10px;
+        min-width: 30px;
+        font-size: 0.9em;
+    }
+
+    #keyboard button.wide-button {
+        min-width: 45px;
+    }
+}
